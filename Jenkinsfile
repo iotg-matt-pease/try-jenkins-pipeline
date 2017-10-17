@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Terraform Plan Approval') {
             steps {
-                echo "Running Terraform plan..."
+            stage('Clone sources') {
+                git url: 'https://github.com/jfrogdev/project-examples.git'
+                sh 'Terraform plan'
+
                 echo "Getting Terraform plan output..."
                 echo "Raising Jira ticket for deployment approval..."
                 input "Deploy to staging?"
