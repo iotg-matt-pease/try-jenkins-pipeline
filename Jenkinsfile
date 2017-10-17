@@ -7,6 +7,7 @@ pipeline {
                 echo "Running Terraform plan..."
                 echo "Getting Terraform plan output..."
                 echo "Raising Jira ticket for deployment approval..."
+                input "Deploy to staging?"
             }
         }
         stage('Staging') {
