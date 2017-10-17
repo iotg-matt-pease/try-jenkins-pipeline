@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Terraform Plan Approval') {
             steps {
-            stage('Clone sources') {
                 git url: 'https://github.com/jfrogdev/project-examples.git'
                 sh 'Terraform plan'
 
